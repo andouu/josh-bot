@@ -13,12 +13,12 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-const acronyms = require('./data/replies.json').data.acronyms;
+const acronyms = require('./data/replyData.json').data.acronyms;
 
 const prefix = '$';
 
 client.once('ready', () => {
-    console.log('ready');
+    console.log('Locked and cocked!');
 });
 
 client.on('interactionCreate', async interaction => {
@@ -52,21 +52,18 @@ client.on('messageCreate', async message => {
 
             const acronym = args[0].toUpperCase();
 
-            if(acronyms[acronym]) {
-                try {
-                    console.log(acronym);
-                    const allMessages = acronyms[acronym];
-                    const randomIndex = utils.randomInt(0, allMessages.length);
-                    const messageToReply = await message.channel.messages.fetch(message.reference.messageId);
-                    await messageToReply.reply({
-                        content: utils.momentBuilder(acronyms[acronym][randomIndex]),
-                        allowedMentions: {
-                            repliedUser: false
-                        }
-                    });
-                } catch (error) {
-                    console.error(error);
-                }
+            if(acronym.length > 2) return;
+
+            try {
+                const messageToReply = await message.channel.messages.fetch(message.reference.messageId);
+                await messageToReply.reply({
+                    content: utils.momentBuilder(acronym),
+                    allowedMentions: {
+                        repliedUser: false
+                    }
+                });
+            } catch (error) {
+                console.error(error);
             }
         } else {
             const command = client.commands.get(args[0]);

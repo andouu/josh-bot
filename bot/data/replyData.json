@@ -1,0 +1,50 @@
+{
+    "data": {
+        "starts": [
+            "I smell",
+            "I spy with my little eye",
+            "That's",
+            "That was",
+            "Bruh"
+        ],
+        "ends": [
+            "!",
+            "...",
+            ".",
+            "?!",
+            "?",
+            " :flushed:"
+        ],
+        "adjectives": {
+            "D": [
+                "Dumb",
+                "Dubious",
+                "Devious",
+                "Detective",
+                "Dreamy",
+                "Dreaming",
+                "Drowsy"
+            ],
+            "S": [
+                "Seething",
+                "Sitting",
+                "Stupid",
+                "Silly",
+                "Scary",
+                "Scared",
+                "Slapping"
+            ]
+        },
+        "people": {
+            "A": ["Andrew", "Audrey"],
+            "C": ["Conrad", "Condraderson", "Cherie"],
+            "G": ["Gavin"],
+            "J": ["Josh", "Jt Dugan", "JT (Shaolin Monk)", "JT", "JZ"],
+            "K": ["Kalia"],
+            "N": ["Nicole", "Nicholas James Chesemore", "Nick"],
+            "S": ["Sam", "Samuel"],
+            "T": ["Tanmay", "Trey"],
+            "Y": ["Yuval"]
+        }
+    }
+}

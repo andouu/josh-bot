@@ -14,8 +14,8 @@ module.exports = {
                     repliedUser: false
                 }
             });
-        } catch(e) {
-            console.error(e);
+        } catch (error) {
+            console.error(error);
             await message.reply({
                 content: 'Something went wrong when trying to reload...',
                 allowedMentions: {

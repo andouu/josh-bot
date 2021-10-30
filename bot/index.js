@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Client, Collection, Intents, CommandInteractionOptionResolver } = require('discord.js');
+const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
 const utils = require('./components/utils');
 
@@ -13,11 +13,11 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-const acronyms = require('./data/replyData.json').data.acronyms;
-
 const prefix = '$';
 
 client.once('ready', () => {
+    client.user.setActivity('yo mama', { type: 'PLAYING' });
+    client.user.setStatus('dnd');
     console.log('Locked and cocked!');
 });
 

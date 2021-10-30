@@ -4,14 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var mongoose = require('mongoose');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+var { dbUser, dbPassword } = require('./config.json');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -37,5 +41,20 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var mongoDB = `mongodb+srv://${dbUser}:${dbPassword}@joosh.g3umx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+
+var db = mongoose.connection;
+
+app.listen(app.get('port'), () => {
+  console.log('Server listening on port ' + app.get('port'));
+});
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+db.on('connected', () => {
+  data = mongoose.connection.db.collection()
+})
 
 module.exports = app;

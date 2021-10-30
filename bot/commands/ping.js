@@ -5,6 +5,11 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Replies with Pong!'),
 	async execute(message) {
-		await message.reply('Pong!');
+		await message.reply({
+			content: 'Pong!',
+			allowedMentions: {
+				repliedUser: false
+			}
+		});
 	},
 };

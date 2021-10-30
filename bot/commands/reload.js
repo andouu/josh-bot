@@ -8,10 +8,20 @@ module.exports = {
     async execute(message) {
         try {
             const acros = await api.getAcronyms();
-            message.reply('Reloaded Successfully! The acronyms are currently: ' + acros.join(', '));
+            await message.reply({
+                content: 'Reloaded Successfully! The acronyms are currently: ' + acros.join(', '),
+                allowedMentions: {
+                    repliedUser: false
+                }
+            });
         } catch(e) {
             console.error(e);
-            message.reply('Something went wrong when trying to reload...');
+            await message.reply({
+                content: 'Something went wrong when trying to reload...',
+                allowedMentions: {
+                    repliedUser: false
+                }
+            });
         }
     }
 }

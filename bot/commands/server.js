@@ -5,6 +5,11 @@ module.exports = {
         .setName('server')
         .setDescription('Replies with server info!'),
     async execute(message) {
-        await message.reply(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);
+        await message.reply({
+            content: `Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`,
+            allowedMentions: {
+				repliedUser: false
+			}
+        });
     },
 };

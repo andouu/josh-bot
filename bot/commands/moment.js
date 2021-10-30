@@ -5,6 +5,11 @@ module.exports = {
         .setName('moment')
         .setDescription('Replies with a moment!'),
     async execute(message) {
-        await message.reply('moment!');
+        await message.reply({
+			content: 'Moment!',
+			allowedMentions: {
+				repliedUser: false
+			}
+		});
     },
 };

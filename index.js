@@ -1,3 +1,4 @@
+require('dotenv').config({ path: __dirname + '/.env' });
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
@@ -80,4 +81,4 @@ client.on('messageCreate', async message => {
     }
 });
 
-client.login(token);
+client.login(process.env[BOT_TOKEN]);

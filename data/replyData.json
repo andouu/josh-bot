@@ -3,7 +3,8 @@
         "absolutes": {
             "WT": ["That's a **W Take**! :muscle:"],
             "LT": ["That's an **L Take**! :clown:"],
-            "TT": ["That's a **True Take**! :point_up:"]
+            "TT": ["That's a **True Take**! :point_up:"],
+            "LC": ["**Locked and Cocked!** :triumph:"]
         },
         "starts": [
             "I smell",

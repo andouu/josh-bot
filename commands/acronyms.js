@@ -19,6 +19,10 @@ module.exports = {
         });
 
         const combinedMsg = `**Do $help for info on how to activate an acronym.**\n\n${adjDetails}\n${peopleDetails}`;
-        await message.channel.send(combinedMsg);
+        
+        const numReqMessages = Math.ceil(combinedMsg.length / 2000);
+        for(let messages = 0; messages < numReqMessages; messages++) {
+            await message.channel.send(combinedMsg.substring(messages * 2000, Math.min((messages + 1) * 2000 - 1), combinedMsg.length));
+        }
     }
 }

@@ -7,6 +7,13 @@ function randomInt(min, max) { // https://developer.mozilla.org/en-US/docs/Web/J
 }
 
 function momentBuilder(acronym) {
+    const absolutes = replyData.data.absolutes;
+    const isAbsolute = absolutes.hasOwnProperty(acronym);
+    
+    if (isAbsolute) {
+        return absolutes[acronym][randomInt(0, absolutes[acronym].length)];
+    }
+
     const starts = replyData.data.starts;
     const randStart = starts[randomInt(0, starts.length)];
 
@@ -20,7 +27,9 @@ function momentBuilder(acronym) {
     const randPerson = people[acronym[1]][randomInt(0, people[acronym[1]].length)];
     
     const moment = randAdjective + ' ' + randPerson;
-    return `${randStart} a **${moment}** moment${randEnd}`;
+    const momentSentence = `${randStart} a **${moment}** moment${randEnd}`;
+
+    return momentSentence;
 }
 
 module.exports.randomInt = randomInt;
